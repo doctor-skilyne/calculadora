@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>calculadora</title>
+    <link rel="stylesheet" href="index1.css">
+
+</head>
+<body>
+    
+        <table id="calculadora">
+          <tr>
+            <td colspan="4"><input type="text" id="result" id="resultado"></td>
+          </tr>
+          <tr>
+            <td><button onclick="clearResult()" id="clear" class="operacion">C</button></td>
+            <td><button onclick="operacion('/')" id="dividir" class="operacion">/</button></td>
+            <td><button onclick="operacion('*')" id="multiplicar" class="operacion">x</button></td>
+            <td rowspan="2"><button onclick="operacion('-')" id="restar" class="operacion">-</button></td>
+          </tr>
+          <tr>
+            <td><button onclick="numero('1')">1</button></td>
+            <td><button onclick="numero('2')">2</button></td>
+            <td><button onclick="numero('3')">3</button></td>
+          </tr>
+          <tr>
+            <td><button onclick="numero('4')">4</button></td>
+            <td><button onclick="numero('5')">5</button></td>
+            <td><button onclick="numero('6')">6</button></td>
+            <td rowspan="2"><button onclick="operacion('+')" id="sumar" class="operacion">+</button></td>
+          </tr>
+          <tr>
+            <td><button onclick="numero('7')">7</button></td>
+            <td><button onclick="numero('8')">8</button></td>
+            <td><button onclick="numero('9')">9</button></td>
+          </tr>
+          <tr>
+            <td colspan="2"><button onclick="numero('0')">0</button></td>
+            <td colspan="2"><button onclick="calculate()" id="igual"  class="operacion">=</button></td>
+          </tr>
+          </table>
+     
+      <script>
+        function numero(value) {
+            document.getElementById('result').value += value;
+        }
+
+        function operacion(value) {
+            document.getElementById('result').value += value;
+        }
+        
+        function clearResult() {
+            document.getElementById('result').value = '';
+        }
+        
+        function calculate() {
+            try {
+                document.getElementById('result').value = eval(document.getElementById('result').value);
+            } catch (error) {
+                document.getElementById('result').value = 'Error';
+            }
+        }
+    </script>
+
+</body>
+</html>
